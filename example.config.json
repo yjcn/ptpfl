@@ -10,9 +10,13 @@
 	"maxAge": -1,
 	"downloadPath": "",
 	"discordWebhookUrl": "",
-	"interval": 10,
+	"interval": 60,
 	"GoldenPopcorn": false,
 	"page": 1,
+	"qb_host": "",
+	"qb_username": "",
+	"qb_password": "",
+	"qb_category": "",
 	"matchByAgeAndMaxSeeders": [
     { "maxAge": 600, "maxSeeders": 5 },
     { "maxAge": 1200, "maxSeeders": 2 }

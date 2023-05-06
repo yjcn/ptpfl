@@ -1,6 +1,7 @@
 const { validateConfig, fetchTorrents, torrentMatchesFilters, writeTorrentCache } = require('./utils'),
 	sendDiscordNotification = require('./modules/discord'),
-	downloadTorrent = require('./modules/download');
+	downloadTorrent = require('./modules/download'),
+	downloadTorrentinqB = require('./modules/qbittorrent');
 
 module.exports = async function() {
 	try {
@@ -20,7 +21,7 @@ module.exports = async function() {
 		for (const torrent of torrents) {
 			if (torrentMatchesFilters(torrent, config)) {
 				await downloadTorrent({ torrent, authKey, passKey }, config);
-
+				await downloadTorrentinqB({ torrent, authKey, passKey }, config);
 				await sendDiscordNotification({ torrent, authKey, passKey }, config);
 			}
 		}

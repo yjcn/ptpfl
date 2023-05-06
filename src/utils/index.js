@@ -1,4 +1,6 @@
 const dayjs = require('dayjs')
+const dayjs_utc = require('dayjs/plugin/utc')
+dayjs.extend(dayjs_utc)
 const RUN_ENV = process.env.RUN_ENV
 const path = require('path'),
 	fs = require('fs'),
@@ -112,10 +114,9 @@ exports.fetchTorrents = async (apiUser, apiKey, page) => {
 };
 
 const isOlderThan = (date, minutes) => {
-	const uploadTime = dayjs(date)
+	const uploadTime = dayjs.utc(date)
 	const earliest = 1000 * minutes * 60
 	const now = dayjs().valueOf() - dayjs().utcOffset() * 60 * 1000
-	
 	return uploadTime.diff(now) + earliest < 0;
 };
 

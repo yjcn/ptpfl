@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@robertklep/qbittorrent": "^1.0.1",
     "dayjs": "^1.8.16",
     "directory-exists": "^2.0.1",
     "discord.js": "^11.5.1",

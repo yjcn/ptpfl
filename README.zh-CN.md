@@ -2,6 +2,10 @@
 
 一个自动下载ptp免费种子的nodejs程序.
 
+# qb支持
+
+可以在config中配置qb相关信息，种子会直接添加到qb中.
+
 ### 安装
 
 依赖nodejs环境, 推荐使用nvm安装。
@@ -31,6 +35,8 @@
 ### 运行(ptpfl目录下)
 
 `pm2 start index.js --name "myapp"`
+
+或者执行 `node index_once.js`, 只运行一次，可以自己搭配crontab定时运行.
 
 ### 查看日志
 
@@ -66,6 +72,10 @@
   "interval": 15,// 运行间隔时间. 实测一个小时超过20次管理员有可能会发私信要求调整！！，所以不要设置低于3.
   "GoldenPopcorn": true, // 是否下载金种（会忽略所有其他条件）.
   "page": 1, // 爬的页数，50个种子为一页，有时候免费种子会超过一页。 爬取多页会重复调用ptp的api. 实测一个小时调用超过20次管理员有可能会发私信要求调整
+  "qb_host": "", //qb host, e.g http://127.0.0.1:8080
+  "qb_username": "", // qb username
+  "qb_password": "", // qb password
+  "qb_category": "", // torrent category 
   "matchByAgeAndMaxSeeders": [
     { "maxAge": 600, "maxSeeders": 5 },
     { "maxAge": 1200, "maxSeeders": 2 }

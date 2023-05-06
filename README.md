@@ -5,6 +5,10 @@
 
 A node.js script that automates the downloading of PassThePopcorn freeleech torrents.
 
+## qbittorrent
+
+Add qbittorrent interface support, you can directly add torrent in qb. just need to add qb info in config.json.
+
 ### To install
 
 `npm install pm2 -g`
@@ -18,6 +22,8 @@ Add a `downloadPath` to `config.json` to have the torrents added to your torrent
 ### To run
 
 `pm2 start index.js`
+
+or `node index_once.js`, only run once, you can use it in crontab.
 
 ### Log
 
@@ -47,6 +53,10 @@ Configuration options with defaults shown
   "interval": 15,// Download interval.
   "GoldenPopcorn": true, // Download all GoldenPopcorn.
   "page": 1, // page
+  "qb_host": "", //qb host, e.g http://127.0.0.1:8080
+  "qb_username": "", // qb username
+  "qb_password": "", // qb password
+  "qb_category": "", // torrent category 
   "matchByAgeAndMaxSeeders": [
     { "maxAge": 600, "maxSeeders": 5 },
     { "maxAge": 1200, "maxSeeders": 2 }
